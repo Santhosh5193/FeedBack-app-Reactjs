@@ -1,15 +1,28 @@
-import { useState } from "react";
+import { FaTimes, FaEdit } from "react-icons/fa";
+import PropTypes from "prop-types";
+import Card from "./shared/Card";
+import { useContext } from "react";
+import FeedbackContext from "../context/FeedbackContext";
 
-function FeedBackItem() {
-  const [rating, setRating] = useState(10);
-  const [text, setText] = useState("Example of FeedBack Item");
+function FeedBackItem({ item }) {
+  const { deleteItem, editFeedback } = useContext(FeedbackContext);
 
   return (
-    <div className="card">
-      <div className="num-display">{rating}</div>
-      <div className="text-display">{text}</div>
-    </div>
+    <Card>
+      <div className="num-display">{item.rating}</div>
+      <button onClick={() => deleteItem(item.id)} className="close">
+        <FaTimes color="purple" />
+      </button>
+      <button onClick={() => editFeedback(item)} className="edit">
+        <FaEdit colur="purple" />
+      </button>
+      <div className="text-display">{item.text}</div>
+    </Card>
   );
 }
+
+FeedBackItem.prototype = {
+  item: PropTypes.object.isRequired,
+};
 
 export default FeedBackItem;

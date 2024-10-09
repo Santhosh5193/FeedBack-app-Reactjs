@@ -36,8 +36,8 @@ header {
   background-color: #fff;
   color: #333;
   border-radius: 15px;
-  padding: 40px 50px;
-  margin: 20px 0;
+  padding: 30px 40px;
+  margin: 20px 30px;
   position: relative;
 }
 
@@ -209,6 +209,11 @@ input:focus {
 
 .about p {
   margin: 10px 0;
+}
+
+.active {
+  background: #000;
+  color: red;
 }
 
 @media (max-width: 600px) {
